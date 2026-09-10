@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAGNUM | Luxury Auto Detailing</title>
+
+```
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #0a0a0a;
+        color: #ffffff;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 22px 7%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(10, 10, 10, 0.88);
+        backdrop-filter: blur(12px);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+        font-size: 25px;
+        font-weight: 800;
+        letter-spacing: 6px;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        gap: 35px;
+    }
+
+    nav a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 14px;
+        letter-spacing: 1px;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        color: #c8a96b;
+    }
+
+    /* HERO */
+
+    .hero {
+        min-height: 100vh;
+        background:
+            linear-gradient(
+                rgba(0,0,0,0.55),
+                rgba(0,0,0,0.8)
+            ),
+            url("https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=2000&q=85");
+
+        background-size: cover;
+        background-position: center;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+        padding: 120px 20px 60px;
+    }
+
+    .hero-content {
+        max-width: 900px;
+    }
+
+    .small-title {
+        color: #c8a96b;
+        font-size: 13px;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        margin-bottom: 25px;
+    }
+
+    .hero h1 {
+        font-size: clamp(65px, 12vw, 150px);
+        letter-spacing: 15px;
+        font-weight: 900;
+        line-height: 0.9;
+        margin-bottom: 30px;
+    }
+
+    .hero p {
+        color: #d0d0d0;
+        font-size: 19px;
+        max-width: 650px;
+        margin: auto;
+        line-height: 1.7;
+    }
+
+    .hero-buttons {
+        margin-top: 40px;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 16px 30px;
+        background: #c8a96b;
+        color: #0a0a0a;
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin: 5px;
+        transition: 0.3s;
+    }
+
+    .button:hover {
+        background: #ffffff;
+        transform: translateY(-3px);
+    }
+
+    .button-outline {
+        background: transparent;
+        color: white;
+        border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .button-outline:hover {
+        background: white;
+        color: black;
+    }
+
+    /* GENERAL */
+
+    section {
+        padding: 110px 8%;
+    }
+
+    .section-label {
+        color: #c8a96b;
+        font-size: 12px;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    .section-title {
+        font-size: clamp(35px, 5vw, 60px);
+        margin-bottom: 20px;
+        letter-spacing: -1px;
+    }
+
+    .section-description {
+        color: #999;
+        max-width: 650px;
+        line-height: 1.8;
+        font-size: 17px;
+    }
+
+    /* SERVICES */
+
+    .services-section {
+        background: #0d0d0d;
+    }
+
+    .services-header {
+        margin-bottom: 55px;
+    }
+
+    .services {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .service {
+        background: #121212;
+        border: 1px solid #242424;
+        padding: 40px 30px;
+        min-height: 300px;
+        transition: 0.3s;
+        position: relative;
+    }
+
+    .service:hover {
+        transform: translateY(-8px);
+        border-color: #c8a96b;
+    }
+
+    .service-number {
+        color: #c8a96b;
+        font-size: 13px;
+        letter-spacing: 2px;
+        margin-bottom: 35px;
+    }
+
+    .service h3 {
+        font-size: 25px;
+        margin-bottom: 12px;
+    }
+
+    .service p {
+        color: #888;
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
+
+    .price {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+
+    .price span {
+        color: #888;
+        font-size: 13px;
+        font-weight: normal;
+    }
+
+    /* PRICING NOTE */
+
+    .pricing-note {
+        margin-top: 35px;
+        padding: 20px;
+        border-left: 2px solid #c8a96b;
+        background: #111111;
+        color: #888;
+        line-height: 1.7;
+    }
+
+    /* ABOUT */
+
+    .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+    }
+
+    .about-image {
+        min-height: 500px;
+
+        background:
+            linear-gradient(
+                rgba(0,0,0,0.15),
+                rgba(0,0,0,0.3)
+            ),
+            url("https://images.unsplash.com/photo-1542282088-fe8426682b8f?auto=format&fit=crop&w=1200&q=85");
+
+        background-size: cover;
+        background-position: center;
+    }
+
+    .about-text p {
+        color: #999;
+        line-height: 1.9;
+        font-size: 17px;
+        margin-bottom: 25px;
+    }
+
+    /* PROCESS */
+
+    .process-section {
+        background: #111111;
+        text-align: center;
+    }
+
+    .process {
+        margin-top: 60px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+
+    .process-step {
+        padding: 20px;
+    }
+
+    .process-number {
+        font-size: 55px;
+        font-weight: bold;
+        color: #c8a96b;
+        opacity: 0.8;
+        margin-bottom: 20px;
+    }
+
+    .process-step h3 {
+        font-size: 23px;
+        margin-bottom: 12px;
+    }
+
+    .process-step p {
+        color: #888;
+        line-height: 1.7;
+    }
+
+    /* CONTACT */
+
+    .contact {
+        text-align: center;
+
+        background:
+            linear-gradient(
+                rgba(0,0,0,0.75),
+                rgba(0,0,0,0.9)
+            ),
+            url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=85");
+
+        background-size: cover;
+        background-position: center;
+    }
+
+    .contact .section-description {
+        margin: 0 auto 35px;
+    }
+
+    .email {
+        display: block;
+        color: #c8a96b;
+        font-size: 20px;
+        margin-bottom: 30px;
+        word-break: break-word;
+    }
+
+    /* FOOTER */
+
+    footer {
+        background: #050505;
+        border-top: 1px solid #222;
+        padding: 35px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    footer p {
+        color: #666;
+        font-size: 13px;
+    }
+
+    footer strong {
+        color: white;
+        letter-spacing: 4px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+
+        nav {
+            padding: 18px 5%;
+        }
+
+        nav ul {
+            gap: 15px;
+        }
+
+        nav a {
+            font-size: 12px;
+        }
+
+        .logo {
+            font-size: 19px;
+            letter-spacing: 4px;
+        }
+
+        .services {
+            grid-template-columns: 1fr;
+        }
+
+        .about {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .about-image {
+            min-height: 350px;
+        }
+
+        .process {
+            grid-template-columns: 1fr;
+        }
+
+        section {
+            padding: 80px 6%;
+        }
+
+        footer {
+            flex-direction: column;
+            gap: 15px;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 550px) {
+
+        nav ul {
+            display: none;
+        }
+
+        .hero h1 {
+            letter-spacing: 8px;
+        }
+
+        .hero p {
+            font-size: 16px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="logo">
+        MAGNUM
+    </div>
+
+    <ul>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#process">PROCESS</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+    </ul>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="small-title">
+            Luxury Automotive Detailing
+        </div>
+
+        <h1>MAGNUM</h1>
+
+        <p>
+            Premium automotive detailing focused on precision,
+            protection, and a flawless finish.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                class="button"
+                href="mailto:Isaacwinkler4@outlook.com?subject=Magnum%20Detailing%20Quote"
+            >
+                BOOK A DETAIL
+            </a>
+
+            <a
+                class="button button-outline"
+                href="#services"
+            >
+                VIEW SERVICES
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="services-section" id="services">
+
+    <div class="services-header">
+
+        <div class="section-label">
+            What We Do
+        </div>
+
+        <h2 class="section-title">
+            DETAILING WITHOUT<br>
+            COMPROMISE.
+        </h2>
+
+        <p class="section-description">
+            Professional detailing services designed to clean,
+            refresh, protect, and maintain your vehicle.
+        </p>
+
+    </div>
+
+
+    <div class="services">
+
+
+        <!-- SERVICE 1 -->
+
+        <div class="service">
+
+            <div class="service-number">
+                01 — EXTERIOR
+            </div>
+
+            <h3>Exterior Detail</h3>
+
+            <p>
+                Thorough exterior wash including wheels, tires,
+                paintwork, windows, and exterior surfaces.
+            </p>
+
+            <div class="price">
+                $75 <span>starting at</span>
+            </div>
+
+        </div>
+
+
+        <!-- SERVICE 2 -->
+
+        <div class="service">
+
+            <div class="service-number">
+                02 — INTERIOR
+            </div>
+
+            <h3>Interior Detail</h3>
+
+            <p>
+                Deep interior cleaning including vacuuming,
+                surfaces, carpets, seats, and hard-to-reach areas.
+            </p>
+
+            <div class="price">
+                $100 <span>starting at</span>
+            </div>
+
+        </div>
+
+
+        <!-- SERVICE 3 -->
+
+        <div class="service">
+
+            <div class="service-number">
+                03 — FULL DETAIL
+            </div>
+
+            <h3>Full Detail</h3>
+
+            <p>
+                Complete interior and exterior detailing for
+                customers looking for a full vehicle refresh.
+            </p>
+
+            <div class="price">
+                $175 <span>starting at</span>
+            </div>
+
+        </div>
+
+
+        <!-- SERVICE 4 -->
+
+        <div class="service">
+
+            <div class="service-number">
+                04 — MAINTENANCE
+            </div>
+
+            <h3>Maintenance Detail</h3>
+
+            <p>
+                Recurring cleaning designed to keep your vehicle
+                looking fresh between full details.
+            </p>
+
+            <div class="price">
+                $65 <span>starting at</span>
+            </div>
+
+        </div>
+
+
+        <!-- SERVICE 5 -->
+
+        <div class="service">
+
+            <div class="service-number">
+                05 — PAINT CARE
+            </div>
+
+            <h3>Paint Care</h3>
+
+            <p>
+                Exterior paint cleaning and finishing focused on
+                improving gloss and maintaining your vehicle's finish.
+            </p>
+
+            <div class="price">
+                $125 <span>starting at</span>
+            </div>
+
+        </div>
+
+
+        <!-- SERVICE 6 -->
+
+        <div class="service">
+
+            <div class="service-number">
+                06 — CUSTOM
+            </div>
+
+            <h3>Custom Packages</h3>
+
+            <p>
+                Build a package around exactly what your vehicle
+                needs, from specific areas to complete detailing.
+            </p>
+
+            <div class="price">
+                $200+ <span>custom quote</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="pricing-note">
+
+        <strong>PLEASE NOTE:</strong>
+        Prices shown are starting prices for standard vehicles.
+        Trucks, SUVs, oversized vehicles, heavily soiled interiors,
+        pet hair, stains, and excessive buildup may require an
+        additional charge. Final pricing is confirmed before service.
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <div class="about-image"></div>
+
+    <div class="about-text">
+
+        <div class="section-label">
+            About MAGNUM
+        </div>
+
+        <h2 class="section-title">
+            YOUR CAR.<br>
+            DONE RIGHT.
+        </h2>
+
+        <p>
+            MAGNUM was built around a simple idea:
+            vehicle detailing should be done with patience,
+            precision, and attention to detail.
+        </p>
+
+        <p>
+            We treat every vehicle individually and focus on
+            delivering a finish that our customers can be proud of.
+        </p>
+
+        <a
+            class="button"
+            href="mailto:Isaacwinkler4@outlook.com?subject=Magnum%20Detailing%20Question"
+        >
+            CONTACT US
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- PROCESS -->
+
+<section class="process-section" id="process">
+
+    <div class="section-label">
+        Our Process
+    </div>
+
+    <h2 class="section-title">
+        SIMPLE. PRECISE. PROFESSIONAL.
+    </h2>
+
+
+    <div class="process">
+
+        <div class="process-step">
+
+            <div class="process-number">
+                01
+            </div>
+
+            <h3>Book</h3>
+
+            <p>
+                Contact MAGNUM and tell us what your vehicle needs.
+            </p>
+
+        </div>
+
+
+        <div class="process-step">
+
+            <div class="process-number">
+                02
+            </div>
+
+            <h3>Detail</h3>
+
+            <p>
+                We carefully clean and detail your vehicle.
+            </p>
+
+        </div>
+
+
+        <div class="process-step">
+
+            <div class="process-number">
+                03
+            </div>
+
+            <h3>Drive</h3>
+
+            <p>
+                Pick up your vehicle and enjoy the finished result.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="section-label">
+        Get Started
+    </div>
+
+    <h2 class="section-title">
+        READY FOR A<br>
+        BETTER FINISH?
+    </h2>
+
+    <p class="section-description">
+        Send us an email to ask about pricing, availability,
+        or to schedule your next detail.
+    </p>
+
+    <span class="email">
+        Isaacwinkler4@outlook.com
+    </span>
+
+    <a
+        class="button"
+        href="mailto:Isaacwinkler4@outlook.com?subject=Magnum%20Detailing%20Booking"
+    >
+        EMAIL MAGNUM
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <strong>MAGNUM</strong>
+
+    <p>
+        © 2026 MAGNUM Luxury Auto Detailing
+    </p>
+
+</footer>
+```
+
+</body>
+</html>
